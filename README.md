@@ -2,9 +2,11 @@
 
 M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするファームウェアです。本体の鍵盤だけで母音を弾けます。Macから歌詞とメロディーを送ると、音符に合わせてM5の中の声帯・声道モデルが歌います。画面には声帯の動きと出力波形が表示されます。
 
+本作の着想の原点は **Jameson Hodge さんの「CHIMERA」** です。その作品から生まれた「声道シミュレータ日本語版」の五母音と口の形を、Cardputer-Advで弾ける楽器にしました。[原作者](https://github.com/jamesondh) · [CHIMERAの原作リポジトリ](https://github.com/jamesondh/chimera-vocal-synth) · [声道シミュレータ日本語版](https://github.com/UMEBOSHIISAN/vocal-tract-synth-ja)
+
 ![Zでドを押さえたまま数字キー1〜5で母音を切り替えたときの口・舌・波形の変化](https://raw.githubusercontent.com/UMEBOSHIISAN/cardputer-voice/main/docs/images/vowel-keys.gif)
 
-Zでドを伸ばしたまま、1〜5で「あいうえお」を切り替えます。図の波形はファームウェアの合成コードが出力した10ミリ秒分のサンプル、口と舌は本体画面の描画データを使っています。
+Zでドを伸ばしたまま、1〜5で「あいうえお」を切り替えます。図の波形はファームウェアの合成コードが出力した10ミリ秒分のサンプル、口と舌は本体画面の描画データを使っています。[図の出典](THIRD_PARTY.md#readmeの図と接続)
 
 **対応機種**　Cardputer-Adv（ESP32-S3、8 MB）。付属の再生ツールは macOS 13 以降の Apple Silicon / Intel Mac 用です。
 
@@ -16,7 +18,7 @@ GitHubで公開した `Cardputer-Voice-1.0.0.zip` のファームウェアをCar
 
 ![ふるさと冒頭4小節の音高・長さと「うさぎおいしかのやま」の歌詞の対応](https://raw.githubusercontent.com/UMEBOSHIISAN/cardputer-voice/main/docs/images/furusato-phrase.png)
 
-同梱MIDIの冒頭4小節です。横は時間、縦は音の高さ。最初の「う・さ・ぎ」は同じソを3回弾き、音符ごとに歌詞だけが進みます。
+同梱MIDIの冒頭4小節です。横は時間、縦は音の高さ。最初の「う・さ・ぎ」は同じソを3回弾き、音符ごとに歌詞だけが進みます。[同梱MIDI](mac/ふるさと.mid) · [洗足学園音楽大学「教職ピアノ実習」参照譜](https://www.senzoku.ac.jp/music/career/pdf/score_furusato.pdf)
 
 ## 最初の一曲
 
@@ -118,6 +120,6 @@ make release        # Macで実行。dist/ に配布ZIPとSHA-256を作成
 
 そして、日本語版を作るきっかけになった **Chimera Vocal Synth** の作者、**Jameson Hodge さん**に感謝します。声の仕組みを自分の手で演奏するという着想が、ブラウザからこの小さなハードウェア楽器につながりました。[Jameson Hodge / Chimera Vocal Synth](https://github.com/jamesondh/chimera-vocal-synth)
 
-## 収録曲とライセンス
+## 参考資料とライセンス
 
-4曲の出典と外部ライブラリの表示は [THIRD_PARTY.md](THIRD_PARTY.md) に記載しています。配布ZIPにはプロジェクトのソースと、使用したArduinoコアのソースも同梱しています。
+[図と接続の根拠](THIRD_PARTY.md#readmeの図と接続)、[4曲の出典](THIRD_PARTY.md#デモ曲)、[ライブラリとフォントのクレジット](THIRD_PARTY.md#ライブラリフォント) をまとめています。配布ZIPにはプロジェクトのソースと、使用したArduinoコアのソースも同梱しています。
