@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -47,6 +48,31 @@ def filename(path):
     return unicodedata.normalize("NFC", path.as_posix())
 
 
+def bundle_docs(stage):
+    # Keep packaged image references relative, including in the rebuildable source tree.
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+    def local_image(match):
+        name = Path(match.group(2)).name
+        origin = ROOT / "docs" / "images" / name
+        for folder in (stage, stage / "source"):
+            dest = folder / "docs" / "images" / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(origin, dest)
+        return f"{match.group(1)}(docs/images/{name})"
+
+    readme = re.sub(r"(!\[[^\]]*\])\(([^)]+)\)", local_image, readme)
+    for folder in (stage, stage / "source"):
+        (folder / "README.md").write_text(readme, encoding="utf-8")
+
+    credits = (ROOT / "THIRD_PARTY.md").read_text(encoding="utf-8")
+    (stage / "source" / "THIRD_PARTY.md").write_text(credits, encoding="utf-8")
+    # The top-level mac/ folder contains compiled tools. Link to the corresponding sources.
+    credits = credits.replace("](src/", "](source/src/").replace(
+        "](mac/VoiceMIDI.swift)", "](source/mac/VoiceMIDI.swift)")
+    (stage / "THIRD_PARTY.md").write_text(credits, encoding="utf-8")
+
+
 def bundle(stage, work):
     source = stage / "source"
     for directory, pattern in (("src", "*"), ("tests", "*.cpp"), ("tools", "*.py"),
@@ -57,10 +83,9 @@ def bundle(stage, work):
         for path in (ROOT / directory).glob(pattern):
             if path.is_file():
                 shutil.copy2(path, dest / path.name)
-    for name in ("README.md", "THIRD_PARTY.md", "platformio.ini", "Makefile", ".gitignore"):
+    for name in ("platformio.ini", "Makefile", ".gitignore"):
         shutil.copy2(ROOT / name, source / name)
-    for name in ("README.md", "THIRD_PARTY.md"):
-        shutil.copy2(ROOT / name, stage / name)
+    bundle_docs(stage)
 
     metadata = json.loads(subprocess.check_output(["pio", "project", "metadata", "--json-output"],
                                                   cwd=ROOT))[TARGET]
