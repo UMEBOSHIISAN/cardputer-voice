@@ -6,6 +6,10 @@ M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするフ�
 
 [v1.0.0 の配布ZIP・チェックサムをダウンロード](https://github.com/UMEBOSHIISAN/cardputer-voice/releases/tag/v1.0.0)
 
+## 実機確認（2026年11月19日）
+
+GitHubで公開した `Cardputer-Voice-1.0.0.zip` のファームウェアをCardputer-Advに書き込み、ハッシュの一致を確認しました。同じZIPに入っている `mac/ふるさとを歌う.command` をMacで実行し、USB-MIDI経由で本体が『ふるさと』全3番（48小節、約1分48秒）を最後まで歌うのを耳で確認しました。
+
 ## 最初の一曲
 
 すでに本体が「Cardputer Voice」として起動する場合はここから始めてください。新しい本体には次の節の手順でインストールします。
