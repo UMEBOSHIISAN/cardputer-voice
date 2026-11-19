@@ -1,0 +1,7 @@
+.pio/
+dist/
+mac/voice-midi
+.DS_Store
+__pycache__/
+.venv/
+.flash-venv/
