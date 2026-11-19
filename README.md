@@ -2,6 +2,10 @@
 
 M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするファームウェアです。本体の鍵盤だけで母音を弾けます。Macから歌詞とメロディーを送ると、音符に合わせてM5の中の声帯・声道モデルが歌います。画面には声帯の動きと出力波形が表示されます。
 
+![Zでドを押さえたまま数字キー1〜5で母音を切り替えたときの口・舌・波形の変化](https://raw.githubusercontent.com/UMEBOSHIISAN/cardputer-voice/main/docs/images/vowel-keys.gif)
+
+Zでドを伸ばしたまま、1〜5で「あいうえお」を切り替えます。図の波形はファームウェアの合成コードが出力した10ミリ秒分のサンプル、口と舌は本体画面の描画データを使っています。
+
 **対応機種**　Cardputer-Adv（ESP32-S3、8 MB）。付属の再生ツールは macOS 13 以降の Apple Silicon / Intel Mac 用です。
 
 [v1.0.0 の配布ZIP・チェックサムをダウンロード](https://github.com/UMEBOSHIISAN/cardputer-voice/releases/tag/v1.0.0)
@@ -9,6 +13,10 @@ M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするフ�
 ## 実機確認（2026年11月19日）
 
 GitHubで公開した `Cardputer-Voice-1.0.0.zip` のファームウェアをCardputer-Advに書き込み、ハッシュの一致を確認しました。同じZIPに入っている `mac/ふるさとを歌う.command` をMacで実行し、USB-MIDI経由で本体が『ふるさと』全3番（48小節、約1分48秒）を最後まで歌うのを耳で確認しました。
+
+![ふるさと冒頭4小節の音高・長さと「うさぎおいしかのやま」の歌詞の対応](https://raw.githubusercontent.com/UMEBOSHIISAN/cardputer-voice/main/docs/images/furusato-phrase.png)
+
+同梱MIDIの冒頭4小節です。横は時間、縦は音の高さ。最初の「う・さ・ぎ」は同じソを3回弾き、音符ごとに歌詞だけが進みます。
 
 ## 最初の一曲
 
@@ -68,6 +76,13 @@ shasum -a 256 my-cardputer-backup.bin
 esptoolのハッシュ検証が終わったらRSTを押し、「最初の一曲」に進みます。元の状態に戻す場合は同じ本体を書き込みモードに入れ、同じポートで `"$ESP" --chip esp32s3 --port "$PORT" write_flash 0 my-cardputer-backup.bin` を実行します。[esptoolの公式手引き](https://docs.espressif.com/projects/esptool/en/release-v4/esp32s3/esptool/basic-commands.html)
 
 ## 自分の歌詞を演奏する
+
+```mermaid
+flowchart LR
+    Mac["Mac（歌詞ツール・DAW）"] -->|"USB-MIDI：歌詞・音符"| M5["Cardputer-Adv（歌声を合成）"]
+    M5 --> Speaker["内蔵スピーカー"]
+    M5 -->|"3.5 mm アウト"| Audio["ヘッドホン／録音用インターフェース"]
+```
 
 **mac/歌詞を送る.command** に「かえるのうた」と入力します。DAWで外部MIDI出力に **Cardputer Voice**、チャンネル **1** を選び、付属の「かえるのうた.mid」を再生すると、6音に「か・え・る・の・う・た」が乗ります。USBはMIDI用、オーディオの録音先は本体のアナログ出力です。
 
