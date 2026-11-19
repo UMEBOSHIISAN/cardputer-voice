@@ -79,12 +79,7 @@ esptoolのハッシュ検証が終わったらRSTを押し、「最初の一曲�
 
 ## 自分の歌詞を演奏する
 
-```mermaid
-flowchart LR
-    Mac["Mac（歌詞ツール・DAW）"] -->|"USB-MIDI：歌詞・音符"| M5["Cardputer-Adv（歌声を合成）"]
-    M5 --> Speaker["内蔵スピーカー"]
-    M5 -->|"3.5 mm アウト"| Audio["ヘッドホン／録音用インターフェース"]
-```
+![MacからUSB-MIDIで歌詞と音符をM5へ送り、内蔵スピーカーまたは3.5 mmアウトからヘッドホン・録音用インターフェースへ音を出す接続図](https://github.com/UMEBOSHIISAN/cardputer-voice/releases/download/v1.0.0/cardputer-voice-routing.png)
 
 **mac/歌詞を送る.command** に「かえるのうた」と入力します。DAWで外部MIDI出力に **Cardputer Voice**、チャンネル **1** を選び、付属の「かえるのうた.mid」を再生すると、6音に「か・え・る・の・う・た」が乗ります。USBはMIDI用、オーディオの録音先は本体のアナログ出力です。
 
