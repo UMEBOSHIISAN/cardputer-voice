@@ -12,6 +12,8 @@ Zでドを伸ばしたまま、1〜5で「あいうえお」を切り替えま�
 
 [v1.0.0 の配布ZIP・チェックサムをダウンロード](https://github.com/UMEBOSHIISAN/cardputer-voice/releases/tag/v1.0.0)
 
+配布ZIPには、「あいうえお」で口と波形が動くGIF、『ふるさと』冒頭4小節の図、USB-MIDIと3.5 mmアウトの接続図が入っています。ZIPを展開すると、同梱のREADMEで3点ともオフラインで見られます。
+
 ## 実機確認（2026年11月19日）
 
 GitHubで公開した `Cardputer-Voice-1.0.0.zip` のファームウェアをCardputer-Advに書き込み、ハッシュの一致を確認しました。同じZIPに入っている `mac/ふるさとを歌う.command` をMacで実行し、USB-MIDI経由で本体が『ふるさと』全3番（48小節、約1分48秒）を最後まで歌うのを耳で確認しました。
