@@ -2,6 +2,13 @@
 
 ZIP内のライセンス原文は `source/licenses/`、Gitチェックアウトでは `licenses/` にあります。本プロジェクト固有のコード・素材に対するOSSライセンスは未指定です。各依存ライブラリ・フォント・原典にはそれぞれの利用条件が適用されます。
 
+## 声のモデルと画面の出典
+
+- **声道シミュレータ日本語版** の `index.html` にある `ANAT.vowelRef` を五母音のフォルマントに、`VPOSE` を顎・唇・舌の描画に使用しました。[参照した版 9ea1f16](https://github.com/UMEBOSHIISAN/vocal-tract-synth-ja/blob/9ea1f16a8c9431c6e3500bcadf5377211c613b65/index.html)
+- **Jameson Hodge さんの Chimera Vocal Synth** は、日本語版がREADMEで挙げている着想の原点です。[Chimera Vocal Synth](https://github.com/jamesondh/chimera-vocal-synth)
+
+## ライブラリ・フォント
+
 | ファームウェアの構成要素 | 使用版・出典 | 同梱の表示 |
 |---|---|---|
 | M5Cardputer | [1.1.1、f139285](https://github.com/m5stack/M5Cardputer/tree/f1392858b9994c3547120e602a57d3553d16ab01) | M5Cardputer.txt、Adafruit-TCA8418.txt |

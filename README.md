@@ -4,6 +4,8 @@ M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするフ�
 
 **対応機種**　Cardputer-Adv（ESP32-S3、8 MB）。付属の再生ツールは macOS 13 以降の Apple Silicon / Intel Mac 用です。
 
+[v1.0.0 の配布ZIP・チェックサムをダウンロード](https://github.com/UMEBOSHIISAN/cardputer-voice/releases/tag/v1.0.0)
+
 ## 最初の一曲
 
 すでに本体が「Cardputer Voice」として起動する場合はここから始めてください。新しい本体には次の節の手順でインストールします。
@@ -90,6 +92,12 @@ make release        # Macで実行。dist/ に配布ZIPとSHA-256を作成
 ```
 
 `src/` が合成・画面・鍵盤・USB-MIDI、`mac/` が歌詞転送・曲データ、`tests/` がホスト上の検証です。ビルド設定は `platformio.ini` にあります。[PlatformIOのビルドコマンド](https://docs.platformio.org/en/latest/core/userguide/cmd_run.html)
+
+## Special Thanks
+
+この楽器の出発点は「声道シミュレータ日本語版」です。そこで使われている日本語五母音の共鳴周波数をM5の歌声に、母音ごとの顎・唇・舌の位置を本体の画面に受け継ぎました。[UMEBOSHIISAN / vocal-tract-synth-ja](https://github.com/UMEBOSHIISAN/vocal-tract-synth-ja)
+
+そして、日本語版を作るきっかけになった **Chimera Vocal Synth** の作者、**Jameson Hodge さん**に感謝します。声の仕組みを自分の手で演奏するという着想が、ブラウザからこの小さなハードウェア楽器につながりました。[Jameson Hodge / Chimera Vocal Synth](https://github.com/jamesondh/chimera-vocal-synth)
 
 ## 収録曲とライセンス
 
