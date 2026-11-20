@@ -8,6 +8,8 @@ M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするフ�
 
 前半はドを伸ばしたまま「あいうえお」、後半は『ふるさと』の冒頭4小節です。動画の音声は、公開ファームウェアと同じ合成コードをMacで鳴らしたものです。
 
+[𝕏で動画付きの配布告知を見る（@umeboshiai）](https://x.com/umeboshiai/status/2123591885168198037)
+
 ![Zでドを押さえたまま数字キー1〜5で母音を切り替えたときの口・舌・波形の変化](https://raw.githubusercontent.com/UMEBOSHIISAN/cardputer-voice/main/docs/images/vowel-keys.gif)
 
 Zでドを伸ばしたまま、1〜5で「あいうえお」を切り替えます。図の波形はファームウェアの合成コードが出力した10ミリ秒分のサンプル、口と舌は本体画面の描画データを使っています。[図の出典](THIRD_PARTY.md#readmeの図と接続)
