@@ -4,6 +4,10 @@ M5Stack Cardputer-Adv を、かなで歌う単音のUSB-MIDI楽器にするフ�
 
 本作の着想の原点は **Jameson Hodge さんの「CHIMERA」** です。その作品から生まれた「声道シミュレータ日本語版」の五母音と口の形を、Cardputer-Advで弾ける楽器にしました。[原作者](https://github.com/jamesondh) · [CHIMERAの原作リポジトリ](https://github.com/jamesondh/chimera-vocal-synth) · [声道シミュレータ日本語版](https://github.com/UMEBOSHIISAN/vocal-tract-synth-ja)
 
+**[音付きデモ動画（15秒・MP4）](https://github.com/UMEBOSHIISAN/cardputer-voice/releases/download/v1.0.0/cardputer-voice-demo.mp4)**
+
+前半はドを伸ばしたまま「あいうえお」、後半は『ふるさと』の冒頭4小節です。動画の音声は、公開ファームウェアと同じ合成コードをMacで鳴らしたものです。
+
 ![Zでドを押さえたまま数字キー1〜5で母音を切り替えたときの口・舌・波形の変化](https://raw.githubusercontent.com/UMEBOSHIISAN/cardputer-voice/main/docs/images/vowel-keys.gif)
 
 Zでドを伸ばしたまま、1〜5で「あいうえお」を切り替えます。図の波形はファームウェアの合成コードが出力した10ミリ秒分のサンプル、口と舌は本体画面の描画データを使っています。[図の出典](THIRD_PARTY.md#readmeの図と接続)
